@@ -1,7 +1,7 @@
 import { Box, Image, Text, Link} from '@chakra-ui/react'
 import {useEffect} from "react";
 
-export default function ({image, name, useLink}){
+export default function InfoCard({image, name, useLink}){
     useEffect(()=> {
         console.log(image);
     })
