@@ -1,13 +1,9 @@
 import { Box, Image, Text, Link} from '@chakra-ui/react'
-import {useEffect} from "react";
 
 export default function InfoCard({image, name, useLink}){
-    useEffect(()=> {
-        console.log(image);
-    })
     return (
         <Box shadow="md" borderRadius="10px">
-            <Image src={image} w={"100%"} />
+            <Image src={image} w={"100%"} alt={`${name} sprite`}/>
             <Box px="10px">
                 {useLink?
                     <Link href={`/pokemon/${name}`}>

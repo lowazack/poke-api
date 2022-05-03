@@ -1,7 +1,5 @@
 import {getSinglePokemon} from "../../lib/fetch";
 import {Container, Image, Grid, GridItem, Heading, Box, Text} from '@chakra-ui/react'
-import {useEffect} from "react";
-import {Head} from "next/document";
 
 export default function Pokemon({pokemon}) {
 
