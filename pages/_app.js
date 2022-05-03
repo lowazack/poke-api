@@ -5,19 +5,28 @@ import PulloutNav from "../components/PulloutNav";
 import {useRouter} from "next/router";
 import Search from "../components/Search/Search";
 import Head from "next/head";
+import {useEffect, useState} from "react";
 
 
 function MyApp({Component, pageProps}) {
     const [showPullout, setShowPullout] = useBoolean(false)
     const [showSearch, setShowSearch] = useBoolean(false)
+    const [links, setLinks] = useState([]);
     const router = useRouter();
 
-    const links = [
-        {
-            name: 'Search',
-            action: () => setShowSearch.on
-        }
-    ]
+
+    useEffect(()=> {
+        setLinks([
+            {
+                name: 'Search',
+                action: () => setShowSearch.on
+            },
+            {
+                name: 'Pokémon',
+                action: () => {router.replace('/pokemon')}
+            }
+        ])
+    },[])
 
     return (
         <ChakraProvider>

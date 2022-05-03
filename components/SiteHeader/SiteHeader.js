@@ -17,7 +17,7 @@ export default function SiteHeader({callback, links}){
 
                     <Box ml="auto" display={['none', null, 'block']}>
                         {links.map((link, key) => (
-                            <Button key={key} onClick={link.action()}>{link.name}</Button>
+                            <Button key={key} ml="10px" onClick={link.action()}>{link.name}</Button>
                         ))}
                     </Box>
                 </Container>
