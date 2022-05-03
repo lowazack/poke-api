@@ -15,7 +15,7 @@ export default function SiteHeader({callback, links}){
                         <HamburgerIcon />
                     </Button>
 
-                    <Box ml="auto">
+                    <Box ml="auto" display={['none', null, 'block']}>
                         {links.map((link, key) => (
                             <Button key={key} onClick={link.action()}>{link.name}</Button>
                         ))}
