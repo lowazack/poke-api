@@ -4,6 +4,7 @@ import { useBoolean } from '@chakra-ui/react'
 import PulloutNav from "../components/PulloutNav";
 import {useRouter} from "next/router";
 import Search from "../components/Search/Search";
+import Head from "next/head";
 
 
 function MyApp({Component, pageProps}) {
@@ -20,6 +21,13 @@ function MyApp({Component, pageProps}) {
 
     return (
         <ChakraProvider>
+
+            <Head>
+                <title>Pokemon API</title>
+                <meta name="description" content="Find and compare Pokemon"/>
+                <link rel="icon" href="/favicon.ico"/>
+            </Head>
+
             <SiteHeader callback={setShowPullout} links={links}/>
             <Component {...pageProps} />
             <PulloutNav showPullout={showPullout} callback={setShowPullout} />
