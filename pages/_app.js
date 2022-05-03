@@ -19,11 +19,11 @@ function MyApp({Component, pageProps}) {
         setLinks([
             {
                 name: 'Search',
-                action: () => setShowSearch.on
+                action: () => {setShowSearch.on()}
             },
             {
                 name: 'Pokémon',
-                action: () => {router.replace('/pokemon')}
+                action: () => {location.href = '/pokemon'}
             }
         ])
     },[])
