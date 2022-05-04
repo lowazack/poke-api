@@ -56,7 +56,7 @@ export default function CompareColumn({pokemonNames, activeName, nameCallback}) 
 
                 <Heading size="md" mb={2} textAlign="center">Stats</Heading>
                 {pokemon.pokemon.stats.map((stat, key)=> (
-                    <Box mb={3}>
+                    <Box mb={3} key={key}>
                         <Heading size="sm" mb={0} textAlign="center">{stat.stat.name}</Heading>
                         <Progress hasStripe colorScheme='red' value={(stat.base_stat / 120) * 100} />
                     </Box>
