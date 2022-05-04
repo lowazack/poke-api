@@ -17,7 +17,6 @@ export default function CompareColumn({pokemonNames, activeName, nameCallback}) 
     async function setPokemonState() {
         let [pokemon, pokemonSpecies] = await getSinglePokemon(activeName)
         setPokemon({pokemon, pokemonSpecies})
-        console.log(pokemon)
     }
 
     return (
@@ -58,7 +57,7 @@ export default function CompareColumn({pokemonNames, activeName, nameCallback}) 
                 {pokemon.pokemon.stats.map((stat, key)=> (
                     <Box mb={3} key={key}>
                         <Heading size="sm" mb={0} textAlign="center">{stat.stat.name}</Heading>
-                        <Progress hasStripe colorScheme='red' value={(stat.base_stat / 120) * 100} />
+                        <Progress hasStripe colorScheme='red' value={(stat.base_stat / 255) * 100} />
                     </Box>
                 ))}
             </> : null}
