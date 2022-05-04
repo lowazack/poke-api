@@ -60,7 +60,7 @@ export default function AllPokemon({allPokemon, types, generations}) {
     )
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
     let allPokemon = [];
     const [allBasic, types, generations] = await Promise.all([
         getAllPokemon(),

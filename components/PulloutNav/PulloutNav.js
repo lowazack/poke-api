@@ -23,6 +23,7 @@ export default function PulloutNav({showPullout, callback, links}){
                             borderColor="gray.300"
                             py={2}
                             px={4}
+                            mb="10px"
                             borderRadius="10px"
                             href={linkObj.dest}>
                             {linkObj.name}
