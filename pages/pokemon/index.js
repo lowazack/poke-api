@@ -10,11 +10,12 @@ export default function AllPokemon({allPokemon, types, generations}) {
     const [generationFilter, setGenerationFilter] = useState(null)
 
     function filteredPokemon() {
+
         if (!typeFilter && !generationFilter) {
             return allPokemon;
         } else if (typeFilter && !generationFilter) {
             return allPokemon.filter(pokemon => {
-                pokemon.types.includes(typeFilter);
+                return pokemon.types.includes(typeFilter);
             })
         } else if (!typeFilter && generationFilter) {
             return allPokemon.filter(pokemon => {
@@ -33,14 +34,14 @@ export default function AllPokemon({allPokemon, types, generations}) {
     return (
         <>
             <Container maxW="container.lg" display="flex">
-                <Select onChange={e => setTypeFilter(e.target.value === '0'? null:e.target.value)}>
-                    <option value={0}>Filter Type</option>
+                <Select onChange={e => setTypeFilter(e.target.value === '0'? null : e.target.value)}>
+                    <option value={0}>All Types</option>
                     {types.map((type, key) => (
                         <option key={key}>{type}</option>
                     ))}
                 </Select>
-                <Select onChange={e => setGenerationFilter(e.target.value === '0'? null:e.target.value)}>
-                    <option value={0}>Filter Generation</option>
+                <Select onChange={e => setGenerationFilter(e.target.value === '0'? null : e.target.value)}>
+                    <option value={0}>All Generation</option>
                     {generations.map((generation, key) => (
                         <option key={key}>{generation}</option>
                     ))}
@@ -81,9 +82,9 @@ export async function getStaticProps(context) {
         })
 
 
-        // if (process.env.DEVELOPMENT && allPokemon.length > 10) {
-        //     break;
-        // }
+        if (process.env.DEVELOPMENT && allPokemon.length > 10) {
+             break;
+        }
     }
 
     return {

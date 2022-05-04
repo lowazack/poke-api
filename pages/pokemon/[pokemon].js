@@ -1,7 +1,7 @@
 import {getSinglePokemon} from "../../lib/fetch";
 import {Container, Image, Grid, GridItem, Heading, Box, Text} from '@chakra-ui/react'
 
-export default function Pokemon({pokemon}) {
+export default function Pokemon({pokemon, pokemonSpecies}) {
 
     function typesString() {
         let types = []
@@ -17,20 +17,21 @@ export default function Pokemon({pokemon}) {
             let ability = pokemon.abilities[index];
             abilities.push(`${ability.ability.name}${ability.is_hidden ? '(Hidden)' : null}`)
         }
-
         return abilities.join(', ')
     }
 
     return (
         <>
             <Container maxW="container.md" mb="20px">
-                <Grid templateColumns='repeat(3, 1fr)' gap={6}>
+                <Grid templateColumns={['repeat(1, 1fr)', null, 'repeat(3, 1fr)']} gap={6}>
                     <GridItem shadow="md" borderRadius="10px">
                         <Image src={pokemon.sprites.front_default} alt={`${pokemon.name} Sprite`} w="full"/>
                     </GridItem>
                     <GridItem colSpan={2}>
-                        <Heading textTransform="capitalize" mb="10px">{pokemon.name}</Heading>
-
+                        <Heading textTransform="capitalize" mb="5px">{pokemon.name}</Heading>
+                        <Text mb="20px">
+                            { pokemonSpecies.flavor_text_entries[0].flavor_text }
+                        </Text>
                         <Box mb="10px">
                             <Heading as="h3" size="md">Types</Heading>
                             <Text>{typesString()}</Text>
@@ -80,11 +81,12 @@ export default function Pokemon({pokemon}) {
 export async function getServerSideProps(context) {
 
     try {
-        let pokemon = await getSinglePokemon(context.query.pokemon)
+        const [pokemon, pokemonSpecies] = await getSinglePokemon(context.query.pokemon)
 
         return {
             props: {
-                pokemon
+                pokemon,
+                pokemonSpecies
             },
         }
 

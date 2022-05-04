@@ -18,10 +18,6 @@ function MyApp({Component, pageProps}) {
     useEffect(()=> {
         setLinks([
             {
-                name: 'Search',
-                action: () => {setShowSearch.on()}
-            },
-            {
                 name: 'Pokémon',
                 action: () => {location.href = '/pokemon'}
             }
