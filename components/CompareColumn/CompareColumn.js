@@ -1,20 +1,20 @@
-import {Box, Select, Image, SimpleGrid, Text, Heading} from "@chakra-ui/react";
+import {Box, Select, Image, SimpleGrid, Text, Heading, Progress} from "@chakra-ui/react";
 import {useEffect, useState} from "react";
 import {getSinglePokemon} from "../../lib/fetch";
 
-export default function CompareColumn({pokemonNames, activeName, nameCallback}){
+export default function CompareColumn({pokemonNames, activeName, nameCallback}) {
 
     const [pokemon, setPokemon] = useState(null)
 
-    useEffect(()=> {
-        if (activeName){
+    useEffect(() => {
+        if (activeName) {
             setPokemonState()
         } else {
             setPokemon(null)
         }
     }, [activeName])
 
-    async function setPokemonState(){
+    async function setPokemonState() {
         let [pokemon, pokemonSpecies] = await getSinglePokemon(activeName)
         setPokemon({pokemon, pokemonSpecies})
         console.log(pokemon)
@@ -28,7 +28,7 @@ export default function CompareColumn({pokemonNames, activeName, nameCallback}){
                 ))}
             </Select>
 
-            {pokemon? <>
+            {pokemon ? <>
                 <Image
                     src={pokemon.pokemon.sprites.front_default}
                     display="block"
@@ -36,7 +36,6 @@ export default function CompareColumn({pokemonNames, activeName, nameCallback}){
                     maxW="200px"
                     mx="auto"
                 />
-
                 <Heading size="md" mb={2} textAlign="center">Type</Heading>
                 <SimpleGrid columns={2} borderRadius={5} spacing={1} overflow="hidden" mb={5}>
                     {pokemon.pokemon.types.map((type, key) => (
@@ -54,6 +53,14 @@ export default function CompareColumn({pokemonNames, activeName, nameCallback}){
                         </Box>
                     ))}
                 </SimpleGrid>
+
+                <Heading size="md" mb={2} textAlign="center">Stats</Heading>
+                {pokemon.pokemon.stats.map((stat, key)=> (
+                    <Box mb={3}>
+                        <Heading size="sm" mb={0} textAlign="center">{stat.stat.name}</Heading>
+                        <Progress hasStripe colorScheme='red' value={(stat.base_stat / 120) * 100} />
+                    </Box>
+                ))}
             </> : null}
         </Box>
 
