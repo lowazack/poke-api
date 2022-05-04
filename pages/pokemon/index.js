@@ -70,15 +70,20 @@ export async function getStaticProps(context) {
 
 
     for (let pokeKey in allBasic.results) {
-        let [pokemon, pokemonSpecies] = await getSinglePokemon(allBasic.results[pokeKey].name);
-        allPokemon.push({
-            name: pokemon.species.name,
-            image: pokemon.sprites.front_default,
-            types: pokemon.types.map((type) => {
-                return type.type.name
-            }),
-            generation: pokemonSpecies.generation.name
-        })
+        try {
+            let [pokemon, pokemonSpecies] = await getSinglePokemon(allBasic.results[pokeKey].name);
+            allPokemon.push({
+                name: pokemon.species.name,
+                image: pokemon.sprites.front_default,
+                types: pokemon.types.map((type) => {
+                    return type.type.name
+                }),
+                generation: pokemonSpecies.generation.name
+            })
+        } catch (e) {
+            console.log(e)
+        }
+
 
         if (process.env.DEVELOPMENT && allPokemon.length > 10) {
             break;
