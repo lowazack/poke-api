@@ -10,7 +10,6 @@ export default function AllPokemon({allPokemon, types, generations}) {
     const [generationFilter, setGenerationFilter] = useState(null)
 
     function filteredPokemon() {
-
         if (!typeFilter && !generationFilter) {
             return allPokemon;
         } else if (typeFilter && !generationFilter) {
@@ -51,7 +50,7 @@ export default function AllPokemon({allPokemon, types, generations}) {
                 <Divider/>
             </Container>
             <Container maxW="container.lg">
-                <SimpleGrid columns={4} spacing={10}>
+                <SimpleGrid columns={[2,null,4]} spacing={[5, null, 10]}>
                     {filteredPokemon().map((pokemon, key) => (
                         <InfoCard key={key} {...pokemon} useLink={true}/>
                     ))}
