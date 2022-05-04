@@ -11,18 +11,14 @@ import {useEffect, useState} from "react";
 function MyApp({Component, pageProps}) {
     const [showPullout, setShowPullout] = useBoolean(false)
     const [showSearch, setShowSearch] = useBoolean(false)
-    const [links, setLinks] = useState([]);
-    const router = useRouter();
 
+    const links = [
+        {
+            name: 'Pokémon',
+            dest: '/pokemon'
+        }
+    ]
 
-    useEffect(()=> {
-        setLinks([
-            {
-                name: 'Pokémon',
-                action: () => {location.href = '/pokemon'}
-            }
-        ])
-    },[])
 
     return (
         <ChakraProvider>
@@ -35,7 +31,7 @@ function MyApp({Component, pageProps}) {
 
             <SiteHeader callback={setShowPullout} links={links}/>
             <Component {...pageProps} />
-            <PulloutNav showPullout={showPullout} callback={setShowPullout} />
+            <PulloutNav showPullout={showPullout} callback={setShowPullout}  links={links}/>
             { showSearch? <Search callback={setShowSearch}/>: null }
         </ChakraProvider>
     )
