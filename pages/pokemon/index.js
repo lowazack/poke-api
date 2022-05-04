@@ -68,26 +68,22 @@ export async function getStaticProps(context) {
         getGenerationNames()
     ])
 
-
     for (let pokeKey in allBasic.results) {
-        try {
-            let [pokemon, pokemonSpecies] = await getSinglePokemon(allBasic.results[pokeKey].name);
-            allPokemon.push({
-                name: pokemon.species.name,
-                image: pokemon.sprites.front_default,
-                types: pokemon.types.map((type) => {
-                    return type.type.name
-                }),
-                generation: pokemonSpecies.generation.name
-            })
-        } catch (e) {
-            console.log(e)
-        }
+
+        let [pokemon, pokemonSpecies] = await getSinglePokemon(allBasic.results[pokeKey].name);
+        allPokemon.push({
+            name: pokemon.species.name,
+            image: pokemon.sprites.front_default,
+            types: pokemon.types.map((type) => {
+                return type.type.name
+            }),
+            generation: pokemonSpecies.generation? pokemonSpecies.generation.name: 'undefined'
+        })
 
 
-        if (process.env.DEVELOPMENT && allPokemon.length > 10) {
-            break;
-        }
+        // if (process.env.DEVELOPMENT && allPokemon.length > 10) {
+        //     break;
+        // }
     }
 
     return {
