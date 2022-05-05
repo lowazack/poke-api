@@ -21,7 +21,6 @@ export default function Pokemon({pokemon, pokemonSpecies}) {
     }
 
     function getFlavourText() {
-
         let flavourText = ''
         pokemonSpecies.flavor_text_entries.forEach(entry => {
             if (entry.language.name === 'en'){
