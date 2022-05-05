@@ -69,7 +69,6 @@ export async function getStaticProps() {
     ])
 
     for (let pokeKey in allBasic.results) {
-
         let [pokemon, pokemonSpecies] = await getSinglePokemon(allBasic.results[pokeKey].name);
         allPokemon.push({
             name: pokemon.species.name,
@@ -79,7 +78,6 @@ export async function getStaticProps() {
             }),
             generation: pokemonSpecies.generation? pokemonSpecies.generation.name: 'undefined'
         })
-
 
         if (process.env.DEVELOPMENT && allPokemon.length > 10) {
              break;

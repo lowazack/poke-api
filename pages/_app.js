@@ -21,6 +21,11 @@ function MyApp({Component, pageProps}) {
             name: 'Compare',
             dest: '/compare'
         },
+
+        {
+            name: 'My Pokémon',
+            dest: '/my-pokemon'
+        },
     ]
 
 
