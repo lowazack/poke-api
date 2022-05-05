@@ -1,7 +1,7 @@
 import SearchingUnown from "../components/SearchingUnown";
 import {Heading, Text, Container, Link} from "@chakra-ui/react";
 
-export default function Custom404() {
+export default function Custom500() {
     return (
         <>
             <SearchingUnown/>
