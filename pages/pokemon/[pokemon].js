@@ -20,6 +20,18 @@ export default function Pokemon({pokemon, pokemonSpecies}) {
         return abilities.join(', ')
     }
 
+    function getFlavourText() {
+
+        let flavourText = ''
+        pokemonSpecies.flavor_text_entries.forEach(entry => {
+            if (entry.language.name === 'en'){
+                return flavourText = entry.flavor_text
+                throw 'break'
+            }
+        })
+        return flavourText
+    }
+
     return (
         <>
             <Container maxW="container.md" mb="20px">
@@ -30,7 +42,7 @@ export default function Pokemon({pokemon, pokemonSpecies}) {
                     <GridItem colSpan={2}>
                         <Heading textTransform="capitalize" mb="5px">{pokemon.name}</Heading>
                         <Text mb="20px">
-                            { pokemonSpecies.flavor_text_entries[0].flavor_text }
+                            { getFlavourText() }
                         </Text>
                         <Box mb="10px">
                             <Heading as="h3" size="md">Types</Heading>
