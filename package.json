@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.1.7",
@@ -19,6 +20,7 @@
     "react-dom": "18.1.0"
   },
   "devDependencies": {
+    "cypress": "^9.6.0",
     "eslint": "8.14.0",
     "eslint-config-next": "12.1.6"
   }

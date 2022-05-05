@@ -30,7 +30,7 @@ export default function InfoCard({image, name, useLink, removeCallback}) {
                 <Image src={image} w={"100%"} alt={`${name} sprite`}/>
                 <IconButton
                     onClick={toggleActive}
-                    aria-label='Favourite'
+                    aria-label={`toggle-${name}`}
                     icon={<StarIcon/>}
                     color={myPokemon.includes(name) ? 'red' : 'gray'}
                     position="absolute"
