@@ -31,3 +31,11 @@ DEVELOPMENT=TRUE
 ### Issues
 1. Search: Initially I was planning on implementing search however seeing as the api does not support partial search i decided It would be best to avoid doing this due to time constraints.
 2. An issue I had was dealing with the load times of all 1000+ pokemon  so I implemented a  limit for the dev environment.
+3. Time: I did not have enough time to fully write integration tests I have wrote a quick one for testing the local storage functions as a quick example.
+
+### Going Forward
+1. Improve the animations on the error pages to aboid the Unown flickering.
+2. UI Improvements and general filling out of content as seen by the homepage being empty, also more info can be added to the individual pokemon pages.
+3. Add search as this would be a feature to improve usability drastically.
+4. Better and more granular filters on the /pokemon page
+5. Better stat comparison when comparing pokemon by highlighting which stat is the higher of the two being compared. maybe adding something that will show what moves will be x2/x4 effective.  

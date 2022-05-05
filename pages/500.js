@@ -7,7 +7,7 @@ export default function Custom500() {
             <SearchingUnown/>
 
             <Container w="container.sm" textAlign="center" mt="50px">
-                <Heading>404</Heading>
+                <Heading>500</Heading>
                 <Text mb="20px">Oops you seem lost, why not go back home</Text>
                 <Link href={'/'} p="10px" bgColor="red.400" color="white" borderRadius="10px">
                     Home
