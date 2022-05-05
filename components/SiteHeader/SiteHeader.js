@@ -6,7 +6,7 @@ export default function SiteHeader({callback, links}){
     return (
         <>
             <header>
-                <Container maxW="container.lg" p="10px" shadow="md" my="20px" borderRadius="10px" w="calc(100% - 40px)" display="flex"m>
+                <Container maxW="container.lg" p="10px" shadow="md" my="20px" borderRadius="10px" w="calc(100% - 40px)" display="flex" zIndex={10}>
                     <Link href="/">
                         <Image src="/img/logo.svg" alt="Poke Api Logo" />
                     </Link>

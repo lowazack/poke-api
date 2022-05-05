@@ -1,6 +1,5 @@
-import {getAllPokemon, getSinglePokemon} from "../lib/fetch";
-import {getGenerationNames, getTypeNames} from "../lib/utility";
-import {Container,SimpleGrid, Box, Select} from "@chakra-ui/react";
+import {getAllPokemon} from "../lib/fetch";
+import {Container,SimpleGrid } from "@chakra-ui/react";
 import {useState} from "react";
 import CompareColumn from "../components/CompareColumn";
 
