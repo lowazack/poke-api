@@ -1,12 +1,10 @@
-import {ChakraProvider} from '@chakra-ui/react'
+import {Box, ChakraProvider} from '@chakra-ui/react'
 import SiteHeader from "../components/SiteHeader";
 import { useBoolean } from '@chakra-ui/react'
 import PulloutNav from "../components/PulloutNav";
 import {useRouter} from "next/router";
 import Search from "../components/Search/Search";
 import Head from "next/head";
-import {useEffect, useState} from "react";
-
 
 function MyApp({Component, pageProps}) {
     const [showPullout, setShowPullout] = useBoolean(false)
@@ -38,8 +36,12 @@ function MyApp({Component, pageProps}) {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
 
-            <SiteHeader callback={setShowPullout} links={links}/>
-            <Component {...pageProps} />
+            <SiteHeader callback={setShowPullout} links={links} pulloutShown={showPullout}/>
+
+            <Box mt="100px">
+                <Component {...pageProps} />
+            </Box>
+
             <PulloutNav showPullout={showPullout} callback={setShowPullout}  links={links}/>
             { showSearch? <Search callback={setShowSearch}/>: null }
         </ChakraProvider>

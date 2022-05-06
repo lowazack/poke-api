@@ -6,7 +6,7 @@ export default function Home() {
             <Container maxW="container.lg" >
                 <Box textAlign="center"
                      h="calc(100vh - 200px)"
-                     borderRadius="10px" overflow="hidden"
+                     borderRadius="10px"
                      shadow="md"
                      backgroundImage="https://images.unsplash.com/photo-1638613067237-b1127ef06c00?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80"
                      backgroundPosition="right, center"
@@ -16,8 +16,6 @@ export default function Home() {
                      flexDirection="column"
                      alignItems="center"
                      justifyContent={"center"}
-                     textShadow="2px 2px 2px ##fff;"
-
                 >
                     <Heading>
                         Poke API

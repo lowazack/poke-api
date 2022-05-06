@@ -1,18 +1,20 @@
-import { Container, Image, Link, Button, Box } from '@chakra-ui/react';
+import {Container, Image, Link, Button, Box} from '@chakra-ui/react';
 import {HamburgerIcon} from '@chakra-ui/icons'
 
 
-export default function SiteHeader({callback, links}){
+export default function SiteHeader({callback, links, pulloutShown}) {
     return (
         <>
-            <header>
-                <Container maxW="container.lg" p="10px" shadow="md" my="20px" borderRadius="10px" w="calc(100% - 40px)" display="flex" zIndex={10}>
+            {!pulloutShown ? <Box as="header" position="fixed" w="100vw" top="0" left="0" zIndex="10">
+                <Container maxW="container.lg" p="10px" shadow="md" my="20px" borderRadius="10px" w="calc(100% - 40px)"
+                           display="flex" zIndex={1} backgroundColor="white">
+
                     <Link href="/">
-                        <Image src="/img/logo.svg" alt="Poke Api Logo" />
+                        <Image src="/img/logo.svg" alt="Poke Api Logo"/>
                     </Link>
 
                     <Button ml="auto" onClick={callback.on} display={['block', null, 'none']}>
-                        <HamburgerIcon />
+                        <HamburgerIcon/>
                     </Button>
 
                     <Box ml="auto" my="auto" display={['none', null, 'block']}>
@@ -30,7 +32,7 @@ export default function SiteHeader({callback, links}){
                         ))}
                     </Box>
                 </Container>
-            </header>
+            </Box> : null}
         </>
     )
 }
